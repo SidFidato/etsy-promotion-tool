@@ -1,11 +1,8 @@
 services:
   - type: web
-    name: portrait-video-app
-    env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python render_flask_wrapper.py"
-    envVars:
-      - key: PORT
-        value: 3000
+    name: portrait-docker-app
+    env: docker
     plan: free
-    runtime: python3.10
+    repo: https://github.com/your-username/portrait-video-generator
+    branch: main
+    dockerfilePath: Dockerfile
