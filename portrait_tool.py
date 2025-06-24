@@ -5,7 +5,6 @@ import os
 from PIL import ImageFont, ImageDraw, Image
 import moviepy.editor as mp
 
-# Load caption data
 with open("caption_segments.json", "r", encoding="utf-8") as f:
     caption_data = json.load(f)
 
