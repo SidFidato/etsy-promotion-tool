@@ -1,17 +1,17 @@
-# 🎬 Portrait Video Generator
+# Portrait Video Generator (Bark-Free)
 
-AI-powered tool to generate vertical Instagram-style videos with:
-- Top: 1080p Video
-- Center: Synced Captions with black bar
-- Bottom: Static Image
-- Voice: Male realistic AI voice (Bark)
+Create Reels-style portrait videos with:
+- Top video (no stretching)
+- Bottom image (auto fitted)
+- Centered captions
+- Auto voiceover using gTTS
 
-## 🛠 Stack
-- Python + OpenCV + MoviePy
-- Bark + Whisper
-- Gradio GUI + Flask (for Render)
+## Deploy on Render
+- Python 3
+- Build command: `pip install -r requirements.txt`
+- Start command: `python render_flask_wrapper.py`
 
-## 🔥 Deploy
-Push this repo to GitHub  
-Use [Render.com](https://render.com) > New Web Service > Select repo  
-That's it 🎉
+## How to Use
+1. Enter script
+2. Upload image & video
+3. Click "Generate Video"
