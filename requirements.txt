@@ -6,6 +6,6 @@ moviepy
 opencv-python
 gtts
 openai-whisper @ git+https://github.com/openai/whisper.git
-torch==2.0.1
-torchaudio==2.0.2
+torch==2.7.1
+torchaudio==2.7.1
 ffmpeg-python
