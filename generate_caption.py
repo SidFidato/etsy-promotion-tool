@@ -1,18 +1,13 @@
-from bark import generate_audio, preload_models
-import torchaudio, torch, whisper, json
-import numpy as np
+from gtts import gTTS
+import whisper
 
-def generate_caption_and_audio(script_text, voice_path="voice.wav", caption_path="caption_segments.json"):
-    preload_models()
-    sentences = [s.strip() for s in script_text.split('.') if s.strip()]
-    audio_chunks = [generate_audio(line, history_prompt="v2/en_speaker_6") for line in sentences]
-    voiceover = np.concatenate(audio_chunks)
-    torchaudio.save(voice_path, torch.tensor(voiceover).unsqueeze(0), 24000)
+tts = gTTS("Your input script here", lang='en')
+tts.save("voice.wav")
 
-    model = whisper.load_model("base")
-    result = model.transcribe(voice_path)
-    segments = result["segments"]
-    captions = [{"start": s["start"], "end": s["end"], "text": s["text"].strip()} for s in segments]
+model = whisper.load_model("base")
+result = model.transcribe("voice.wav")
 
-    with open(caption_path, "w", encoding="utf-8") as f:
-        json.dump(captions, f, indent=2)
+with open("caption_segments.json", "w", encoding="utf-8") as f:
+    import json
+    segments = [{"start": s['start'], "end": s['end'], "text": s['text']} for s in result['segments']]
+    json.dump(segments, f, indent=2)
