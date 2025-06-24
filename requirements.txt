@@ -1,0 +1,12 @@
+gradio==4.27.0
+flask
+moviepy
+opencv-python
+numpy
+pillow
+torch
+torchaudio
+requests
+tqdm
+whisper @ git+https://github.com/openai/whisper.git
+bark==0.0.1

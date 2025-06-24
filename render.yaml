@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: portrait-video-app
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python render_flask_wrapper.py"
+    envVars:
+      - key: PORT
+        value: 3000
+    plan: free
